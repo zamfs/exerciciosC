@@ -13,12 +13,12 @@ int main(){
             }
       }
       
-      //Calculando média de notas de cada aluno.
+      //Calculando mÃ©dia de notas de cada aluno.
       for (i=0; i<10; i++){
             mediaAlunos[i] = (NotasTurma[i][0] + NotasTurma[i][1] + NotasTurma[i][2])/3;
       }
       
-      //Calculando média da turma em cada teste.
+      //Calculando mÃ©dia da turma em cada teste.
       for (j=0; j<3; j++){
             for(i=0; i<10; i++){
                   somaNotasTestes += NotasTurma[i][j];
