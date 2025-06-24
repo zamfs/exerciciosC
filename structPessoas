@@ -1,0 +1,30 @@
+#include <stdio.h>
+#define LIM 10
+
+struct Pessoa{
+	char nome[50];
+	int idade;
+	float altura;
+};
+
+int main(){
+	struct Pessoa pessoas[LIM];
+	int i,j;
+	
+	printf("\nDigite as informacoes das pessoas (nome, idade e altura)\n");
+	for (i=0; i<LIM; i++){
+		printf("\nPessoa %d", i+1);
+			printf("\nNome: ");scanf("%s", &pessoas[i].nome);
+			printf("\nIdade: ");scanf("%d", &pessoas[i].idade);
+			printf("\nAltura: ");scanf("%f", &pessoas[i].altura);
+	}
+	
+	
+	printf("\n\n\nPessoas que possuem +30 anos ou altura +1,70m");
+	for (i=0; i<LIM; i++){
+		if ((pessoas[i].idade > 30) || (pessoas[i].altura > 1.70)){
+			printf("\n -%s", pessoas[i].nome);
+		}
+	}
+	return 0;
+}
