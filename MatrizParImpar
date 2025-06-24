@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(){
+	int matriz[5][5];
+	int i, j, par, impar, x;
+	int pares[25], impares[25];
+	
+	printf("Digite os numeros da matriz.\n\n");
+	x=1;
+	par = 0;
+	impar = 0;
+	for (i=0; i<5; i++){
+		for (j=0; j<5; j++){
+			printf("Digite o %d numero da matriz: ", x); scanf("%d", &matriz[i][j]);
+			if (matriz[i][j]%2 == 0){
+				pares[par] = matriz[i][j];
+				par++;
+			}
+			else{
+				impares[impar] = matriz[i][j];
+				impar++;
+			}
+			x++;
+		}
+	}
+	
+	printf("\n\n\nOs numeros pares sao:");
+	for (i=0; i<par; i++){
+		printf(" %d", pares[i]);
+	}
+	printf("\nNo total: %d pares", par);
+	
+	printf("\n\n\nOs impares sao:");
+	for (i=0; i<impar; i++){
+		printf(" %d", impares[i]);
+	}
+	printf("\nNo total: %d impares", impar);	
+	return 0;
+}
