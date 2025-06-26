@@ -1,0 +1,51 @@
+#include <stdio.h>
+#define LIM 5
+
+struct Aluno{
+	char nome[50], curso[50];
+	int matricula;
+};
+
+
+int main(){
+	int i,verificador_continuar, pesquisa, verificador_pesquisa, num_aluno_pesquisado, pesquisa_encontrada;
+	struct Aluno alunos[LIM];
+	char letra;
+	
+	
+	printf("Faca o cadastro dos alunos: ");
+	for (i=0; i<LIM; i++){
+		printf("\n\n\nAluno %d", i+1);
+		printf("\nDigite a matricula: ");scanf("%d", &alunos[i].matricula);while((letra = getchar()) != '\n' && letra != EOF);
+		printf("\nDigite o nome do aluno: ");fgets(alunos[i].nome, 50, stdin);
+		printf("\nDigite o curso: ");fgets(alunos[i].curso, 50, stdin);
+	}
+	
+	do{
+		verificador_pesquisa = 0;
+		pesquisa_encontrada = 0;
+		while (pesquisa_encontrada == 0){
+			printf("\nDigite a matricula do aluno que voce deseja pesquisar: ");scanf("%d", &pesquisa);
+			for(i=0; i<LIM; i++){
+				if (pesquisa == alunos[i].matricula){
+					verificador_pesquisa = 1;
+					num_aluno_pesquisado = i;
+					pesquisa_encontrada = 1;
+				}
+			}
+			if (pesquisa_encontrada == 0){	
+				printf("Nao foi encontrado nenhum aluno com esta matricula. \nTente novamente.");
+			}
+		}
+		
+		if (verificador_pesquisa == 1){
+				printf("\n\nPesquisa encontrada!");
+				printf("\nAluno: %s", alunos[num_aluno_pesquisado].nome);
+				printf("\nCurso: %s", alunos[num_aluno_pesquisado].curso);
+			}
+		
+		printf("\n\nDeseja digitar outra matricula? \nDigite 1 (para sim) e 0 (para nao): ");scanf("%d", &verificador_continuar);
+	}while(verificador_continuar == 1);
+	
+	return 0;
+}
